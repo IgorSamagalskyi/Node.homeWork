@@ -7,7 +7,7 @@ const fs = require('fs');
 
 const {PORT} = require('./config/variables');
 const users = require('./db/users');
-const usersPath = path.join(__dirname, 'db', 'users.js');
+const usersPath = path.join(__dirname, 'db', 'users.json');
 const staticPath = path.join(__dirname, 'static');
 
 

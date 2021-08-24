@@ -27,7 +27,7 @@ const expressHbs = require('express-handlebars');
 const path = require('path');
 const { PORT } = require('./config/variables');
 
-const usersPath = path.join(__dirname, 'db', 'users.js');
+const usersPath = path.join(__dirname, 'db', 'users.json');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

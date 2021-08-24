@@ -15,18 +15,16 @@ app.use(express.urlencoded({ extended: true }));
 
 const { PORT } = require('./config/variables');
 
-const usersPath = path.join(__dirname, 'db', 'users.js');
+const usersPath = path.join(__dirname, 'db', 'users.json');
 module.exports = { usersPath };
 
 const {
-    loginRouter,
-    userRouter,
-    registerRouter
+    authRouter,
+    userRouter
 } = require('./router');
 
-app.use('/login', loginRouter);
+app.use('/auth', authRouter);
 app.use('/users', userRouter);
-app.use('/register', registerRouter);
 
 // Home
 app.get('/', (req, res) => res.json('Home page'));
