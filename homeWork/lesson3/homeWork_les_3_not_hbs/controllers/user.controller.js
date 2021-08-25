@@ -1,11 +1,11 @@
-const users = require('../db/users.json');
 const { fsUsers } = require('../services');
 
 const { createNewUser, readAllUsers } = fsUsers;
 
 module.exports = {
-    getUsers: (req, res) => {
-        res.json({ users });
+    getUsers: async (req, res) => {
+        const users = await readAllUsers();
+        res.json( users );
     },
 
     postCreateUser: async (req, res) => {
@@ -21,7 +21,8 @@ module.exports = {
         res.status(401).send('This email is already registered');
     },
 
-    getUserId: (req, res) => {
+    getUserId: async (req, res) => {
+        const users = await readAllUsers();
         const { user_id } = req.params;
         const currentUser = users[user_id];
 

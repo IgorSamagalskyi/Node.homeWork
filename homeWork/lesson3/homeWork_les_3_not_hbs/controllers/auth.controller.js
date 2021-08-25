@@ -1,4 +1,6 @@
-const users = require('../db/users.json');
+const { fsUsers } = require('../services');
+
+const { createNewUser, readAllUsers } = fsUsers;
 
 module.exports = {
     getLogin: (req, res) => {
@@ -9,7 +11,8 @@ module.exports = {
         res.json('page register');
     },
 
-    postLogin: (req, res) => {
+    postLogin: async (req, res) => {
+        const users = await readAllUsers();
         const {
             name,
             password
