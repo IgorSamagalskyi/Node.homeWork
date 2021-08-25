@@ -8,9 +8,9 @@ module.exports = {
         res.json({ users });
     },
 
-    postCreateUser: (req, res) => {
-        const users2 = readAllUsers();
-        console.log(users2, 'users2'); // чому показує undefined,дані чомусь не передаються з сервісів, що я зробив не так ?
+    postCreateUser: async (req, res) => {
+        const users = await readAllUsers();
+        console.log(users, 'users2'); // чому показує undefined,дані чомусь не передаються з сервісів, що я зробив не так ?
         const repeatEmail = users.find((user) => user.email === req.body.email);
 
         if (!repeatEmail) {
