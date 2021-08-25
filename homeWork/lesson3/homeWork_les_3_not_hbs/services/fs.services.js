@@ -9,7 +9,7 @@ module.exports = {
         return JSON.parse(data);
     },
 
-    createNewUser: (usersArr) => {
-        return fs.writeFile(usersPath, JSON.stringify(usersArr));
+    createNewUser: async (usersArr) => {
+        return await fs.writeFile(usersPath, JSON.stringify(usersArr));
     }
 };

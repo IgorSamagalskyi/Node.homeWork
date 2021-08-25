@@ -8,15 +8,12 @@
 const express = require('express');
 
 const app = express();
-const path = require('path');
+// const path = require('path');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const { PORT } = require('./config/variables');
-
-const usersPath = path.join(__dirname, 'db', 'users.json');
-module.exports = { usersPath };
 
 const {
     authRouter,

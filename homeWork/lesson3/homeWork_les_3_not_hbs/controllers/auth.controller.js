@@ -1,6 +1,6 @@
 const { fsUsers } = require('../services');
 
-const { createNewUser, readAllUsers } = fsUsers;
+const { readAllUsers } = fsUsers;
 
 module.exports = {
     getLogin: (req, res) => {
